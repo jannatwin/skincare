@@ -88,7 +88,7 @@ export default function SkinAdvisorClient() {
                                         <Sparkles className="text-[#A0849D]" size={40} />
                                     </div>
                                     <h4 className="text-xl font-bold text-[#A0849D]">Hello Gorgeous!</h4>
-                                    <p className="text-[#A0849D]/70 max-w-xs mx-auto mt-2">Describe your skin concerns, routine, or ask for ingredient advice. I'm here to help!</p>
+                                    <p className="text-[#A0849D]/70 max-w-xs mx-auto mt-2">Describe your skin concerns, routine, or ask for ingredient advice. I&apos;m here to help!</p>
                                 </div>
                             )}
                             {chatHistory.map((msg, i) => (

@@ -130,7 +130,7 @@ export default function DashboardPage() {
 
                                 <div className="text-center py-12">
                                     <Package className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-                                    <p className="text-gray-600 mb-4">You haven't placed any orders yet</p>
+                                    <p className="text-gray-600 mb-4">You haven&apos;t placed any orders yet</p>
                                     <Button onClick={() => router.push('/shop')}>
                                         Start Shopping
                                     </Button>

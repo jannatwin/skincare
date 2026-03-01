@@ -315,8 +315,8 @@ export default function Home() {
                                 </div>
                             </div>
                             <p className="text-gray-700 italic">
-                                "The AI skin advisor helped me find the perfect routine for my sensitive skin.
-                                My complexion has never looked better!"
+                                &quot;The AI skin advisor helped me find the perfect routine for my sensitive skin.
+                                My complexion has never looked better!&quot;
                             </p>
                         </div>
 
@@ -331,8 +331,8 @@ export default function Home() {
                                 </div>
                             </div>
                             <p className="text-gray-700 italic">
-                                "Premium quality products at great prices. The foundation is absolutely flawless
-                                and lasts all day. Highly recommend!"
+                                &quot;Premium quality products at great prices. The foundation is absolutely flawless
+                                and lasts all day. Highly recommend!&quot;
                             </p>
                         </div>
                     </div>

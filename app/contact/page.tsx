@@ -33,7 +33,7 @@ export default function ContactPage() {
                 <div className="container mx-auto max-w-4xl text-center">
                     <h2 className="text-2xl md:text-6xl font-serif font-bold leading-tight uppercase mb-12 md:mb-20">
                         <span className="gradient-text">Contact Us</span> VIA THE FORM<br className="hidden md:block" />
-                        {" "}BELOW & WE'LL GET BACK TO<br className="hidden md:block" />
+                        {" "}BELOW & WE&apos;LL GET BACK TO<br className="hidden md:block" />
                         <span className="text-primary">YOU</span> AS SOON AS WE CAN.
                     </h2>
 
