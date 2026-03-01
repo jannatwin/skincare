@@ -41,7 +41,7 @@ export default function AboutPage() {
                                 RADIANCE FROM <span className="gradient-text">WITHIN</span>
                             </h2>
                             <p className="text-gray-600 leading-relaxed mb-6">
-                                Founded in the pursuit of pure, effective beauty, Chame was born from a simple belief: that skincare should be a ritual of self-love. We combine ancient botanical wisdom with modern scientific breakthroughs to create products that don't just sit on the surface, but work in harmony with your skin's natural biology.
+                                Founded in the pursuit of pure, effective beauty, Chame was born from a simple belief: that skincare should be a ritual of self-love. We combine ancient botanical wisdom with modern scientific breakthroughs to create products that don&apos;t just sit on the surface, but work in harmony with your skin&apos;s natural biology.
                             </p>
                             <p className="text-gray-600 leading-relaxed">
                                 Every formula we create is a testament to our commitment to quality, sustainability, and transparency. We believe you deserves to know exactly what goes onto your skin—and why.
@@ -78,7 +78,7 @@ export default function AboutPage() {
                                 <span className="text-primary font-serif text-2xl font-bold">02</span>
                             </div>
                             <h3 className="text-xl font-serif font-bold text-gray-800">Conscious Beauty</h3>
-                            <p className="text-gray-600 text-sm">Our packaging and processes are designed with the planet's future in mind.</p>
+                            <p className="text-gray-600 text-sm">Our packaging and processes are designed with the planet&apos;s future in mind.</p>
                         </div>
                         <div className="space-y-4">
                             <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mx-auto shadow-soft">

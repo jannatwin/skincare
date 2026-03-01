@@ -23,47 +23,47 @@ export default function ShopPage() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const fetchProducts = async () => {
+            setLoading(true);
+            try {
+                console.log('Fetching products with:', { selectedCategory, selectedSubcategory, sortBy, search });
+                let query = supabase.from('products').select('*');
+
+                if (selectedCategory !== 'all') {
+                    query = query.eq('category', selectedCategory);
+                }
+
+                if (selectedSubcategory !== 'all') {
+                    query = query.eq('subcategory', selectedSubcategory);
+                }
+
+                if (search) {
+                    query = query.or(`name.ilike.%${search}%,description.ilike.%${search}%`);
+                }
+
+                // Sorting
+                if (sortBy === 'price-low') {
+                    query = query.order('price', { ascending: true });
+                } else if (sortBy === 'price-high') {
+                    query = query.order('price', { ascending: false });
+                } else {
+                    query = query.order('name', { ascending: true });
+                }
+
+                const { data, error } = await query;
+                console.log('Query result:', { dataCount: data?.length, error });
+
+                if (error) throw error;
+                setProducts(data || []);
+            } catch (error) {
+                console.error('Error fetching products:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchProducts();
     }, [selectedCategory, selectedSubcategory, sortBy, search]);
-
-    const fetchProducts = async () => {
-        setLoading(true);
-        try {
-            console.log('Fetching products with:', { selectedCategory, selectedSubcategory, sortBy, search });
-            let query = supabase.from('products').select('*');
-
-            if (selectedCategory !== 'all') {
-                query = query.eq('category', selectedCategory);
-            }
-
-            if (selectedSubcategory !== 'all') {
-                query = query.eq('subcategory', selectedSubcategory);
-            }
-
-            if (search) {
-                query = query.or(`name.ilike.%${search}%,description.ilike.%${search}%`);
-            }
-
-            // Sorting
-            if (sortBy === 'price-low') {
-                query = query.order('price', { ascending: true });
-            } else if (sortBy === 'price-high') {
-                query = query.order('price', { ascending: false });
-            } else {
-                query = query.order('name', { ascending: true });
-            }
-
-            const { data, error } = await query;
-            console.log('Query result:', { dataCount: data?.length, error });
-
-            if (error) throw error;
-            setProducts(data || []);
-        } catch (error) {
-            console.error('Error fetching products:', error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     const updateFilters = (updates: Record<string, string | null>) => {
         const params = new URLSearchParams(searchParams.toString());
@@ -206,7 +206,7 @@ export default function ShopPage() {
                                     Showing <span className="font-semibold text-primary">{products.length}</span> products
                                     {search && (
                                         <>
-                                            {' '}for <span className="font-semibold">"{search}"</span>
+                                            {' '}for <span className="font-semibold">&quot;{search}&quot;</span>
                                         </>
                                     )}
                                 </p>

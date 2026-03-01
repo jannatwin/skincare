@@ -82,7 +82,7 @@ export default function ReturnsPage() {
                                 </h2>
                                 <div className="pl-12 space-y-4 text-gray-600 leading-relaxed">
                                     <p>For health and safety reasons, we cannot accept returns on items that have been opened, used, or altered. This includes all skincare and makeup products where the security seal has been broken.</p>
-                                    <p>Gift cards and promotional "final sale" items are also ineligible for returns or exchanges.</p>
+                                    <p>Gift cards and promotional &quot;final sale&quot; items are also ineligible for returns or exchanges.</p>
                                 </div>
                             </article>
                         </div>
