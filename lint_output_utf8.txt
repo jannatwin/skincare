@@ -1,0 +1,67 @@
+﻿
+> skincare-ecommerce@0.1.0 lint
+> next lint
+
+npm : 
+At line:1 char:1
++ npm run lint > lint_output.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (:String) [], Remote 
+   Exception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+./app/about/page.tsx
+44:267  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+44:329  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+81:122  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./app/cart/page.tsx
+25:49  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./app/contact/page.tsx
+36:40  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./app/dashboard/page.tsx
+133:80  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./app/login/page.tsx
+117:68  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+./app/page.tsx
+318:33  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+319:71  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+334:33  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+335:69  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./app/returns/page.tsx
+85:67  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+85:78  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./app/shop/page.tsx
+27:8  Warning: React Hook useEffect has a missing dependency: 
+'fetchProducts'. Either include it or remove the dependency 
+array.  react-hooks/exhaustive-deps
+209:86  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+209:95  Error: `"` can be escaped with `&quot;`, `&ldquo;`, 
+`&#34;`, `&rdquo;`.  react/no-unescaped-entities
+
+./components/features/SkinAdvisorClient.tsx
+91:161  Error: `'` can be escaped with `&apos;`, `&lsquo;`, 
+`&#39;`, `&rsquo;`.  react/no-unescaped-entities
+
+info  - Need to disable some ESLint rules? Learn more here: 
+https://nextjs.org/docs/basic-features/eslint#disabling-rules

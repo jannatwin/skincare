@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Link from 'next/link';
 import { Navbar } from '@/components/features/Navbar';
 import { Footer } from '@/components/features/Footer';
@@ -10,7 +10,7 @@ import { supabase } from '@/lib/supabase/client';
 import { useSearchParams, useRouter } from 'next/navigation';
 import { Filter, Loader2, X } from 'lucide-react';
 
-export default function ShopPage() {
+function ShopContent() {
     const searchParams = useSearchParams();
     const router = useRouter();
 
@@ -243,5 +243,17 @@ export default function ShopPage() {
 
             <Footer />
         </div>
+    );
+}
+
+export default function ShopPage() {
+    return (
+        <Suspense fallback={
+            <div className="min-h-screen bg-cream flex items-center justify-center">
+                <Loader2 className="w-12 h-12 text-primary animate-spin" />
+            </div>
+        }>
+            <ShopContent />
+        </Suspense>
     );
 }
