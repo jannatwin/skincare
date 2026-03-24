@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useCart } from '@/contexts/CartContext';
-import { ShoppingCart, User, Menu, X, Search, ChevronDown, Sparkles } from 'lucide-react';
+import { ShoppingCart, User, Menu, X, Search, ChevronDown, Sparkles, Droplet, Cloud, Sun, ShieldCheck, Clock, Zap, Palette, Wind, Eye, Heart } from 'lucide-react';
 
 export function Navbar() {
     const { cartCount } = useCart();
@@ -65,43 +65,202 @@ export function Navbar() {
                             </Link>
                         </div>
 
-                        {/* Skincare Dropdown */}
+                        {/* Skincare Megamenu */}
                         <div className="relative group">
                             <Link href="/shop?category=skincare" className={`${navLinkStyles} flex items-center`}>
                                 Skincare
                                 <ChevronDown className="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" />
                                 <span className={underlineStyles}></span>
                             </Link>
-                            <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-medium py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                                {categories.skincare.map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-lavender-pale hover:text-primary transition-colors"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+
+                            {/* Desktop Megamenu Dropdown */}
+                            <div className="fixed left-0 right-0 top-20 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50 border-t border-lavender-light">
+                                <div className="container mx-auto px-4 py-8">
+                                    <div className="grid grid-cols-12 gap-8">
+
+                                        {/* Column 1: Categories */}
+                                        <div className="col-span-3">
+                                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-4 border-b border-lavender-light pb-2">Categories</h3>
+                                            <ul className="space-y-3">
+                                                <li>
+                                                    <Link href="/shop?category=skincare&subcategory=Cleanser" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Droplet className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Cleansers
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare&subcategory=Serum" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Sparkles className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Toners & Serums
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare&subcategory=Moisturizer" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Cloud className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Moisturizers
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare&subcategory=Sunscreen" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Sun className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Sunscreens
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        {/* Column 2: Skin Concerns */}
+                                        <div className="col-span-3">
+                                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-4 border-b border-lavender-light pb-2">Skin Concerns</h3>
+                                            <ul className="space-y-3">
+                                                <li>
+                                                    <Link href="/shop?category=skincare" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <ShieldCheck className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Acne & Blemishes
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Clock className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Anti-Aging
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Droplet className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Dryness & Hydration
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=skincare" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Zap className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Dullness
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        {/* Empty Column for spacing */}
+                                        <div className="col-span-1"></div>
+
+                                        {/* Column 3: Featured Product */}
+                                        <div className="col-span-5">
+                                            <Link href="/shop?category=skincare" className="block relative h-64 rounded-large overflow-hidden group/promo cursor-pointer">
+                                                {/* Fallback pattern in case image isn't loaded yet */}
+                                                <div className="absolute inset-0 bg-lavender-pale"></div>
+                                                <img
+                                                    src="https://images.pexels.com/photos/8128069/pexels-photo-8128069.jpeg"
+                                                    alt="Featured Skincare Product"
+                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover/promo:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                                <div className="absolute bottom-0 left-0 p-6">
+                                                    <span className="inline-block px-3 py-1 bg-rosegold text-white text-xs font-bold uppercase tracking-wider rounded-full mb-2">Bestseller</span>
+                                                    <h4 className="text-white text-2xl font-serif font-bold mb-2">Radiance Glow Serum</h4>
+                                                    <p className="text-white/90 text-sm mb-4">Discover our top-rated Vitamin C serum for bright, even skin.</p>
+                                                    <span className="text-white font-semibold underline decoration-2 underline-offset-4 hover:text-primary transition-colors">Shop Now &rarr;</span>
+                                                </div>
+                                            </Link>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        {/* Makeup Dropdown */}
+                        {/* Makeup Megamenu */}
                         <div className="relative group">
                             <Link href="/shop?category=makeup" className={`${navLinkStyles} flex items-center`}>
                                 Makeup
                                 <ChevronDown className="w-4 h-4 ml-1 transform group-hover:rotate-180 transition-transform" />
                                 <span className={underlineStyles}></span>
                             </Link>
-                            <div className="absolute top-full left-0 w-48 bg-white shadow-lg rounded-medium py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 z-50">
-                                {categories.makeup.map((item) => (
-                                    <Link
-                                        key={item.name}
-                                        href={item.href}
-                                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-lavender-pale hover:text-primary transition-colors"
-                                    >
-                                        {item.name}
-                                    </Link>
-                                ))}
+
+                            {/* Desktop Megamenu Dropdown */}
+                            <div className="fixed left-0 right-0 top-20 bg-white shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform -translate-y-2 group-hover:translate-y-0 z-50 border-t border-lavender-light">
+                                <div className="container mx-auto px-4 py-8">
+                                    <div className="grid grid-cols-12 gap-8">
+
+                                        {/* Column 1: Face & Cheeks */}
+                                        <div className="col-span-3">
+                                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-4 border-b border-lavender-light pb-2">Face & Cheeks</h3>
+                                            <ul className="space-y-3">
+                                                <li>
+                                                    <Link href="/shop?category=makeup&subcategory=Foundation" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Palette className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Foundations
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=makeup&subcategory=Concealer" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Palette className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Concealers
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=makeup&subcategory=Blush" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Sun className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Blush & Bronzer
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=makeup" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Wind className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Setting Powders
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        {/* Column 2: Eyes & Lips */}
+                                        <div className="col-span-3">
+                                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-4 border-b border-lavender-light pb-2">Eyes & Lips</h3>
+                                            <ul className="space-y-3">
+                                                <li>
+                                                    <Link href="/shop?category=makeup" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Eye className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Mascara & Eyeliner
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=makeup" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Sparkles className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Eyeshadows
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="/shop?category=makeup&subcategory=Lipstick" className="flex items-center text-gray-600 hover:text-primary transition-colors group/link">
+                                                        <Heart className="w-4 h-4 mr-3 text-gray-400 group-hover/link:text-primary transition-colors" />
+                                                        Lipsticks & Glosses
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </div>
+
+                                        {/* Empty Column for spacing */}
+                                        <div className="col-span-1"></div>
+
+                                        {/* Column 3: Featured Product */}
+                                        <div className="col-span-5">
+                                            <Link href="/shop?category=makeup" className="block relative h-64 rounded-large overflow-hidden group/promo cursor-pointer">
+                                                <div className="absolute inset-0 bg-lavender-pale"></div>
+                                                <img
+                                                    src="https://images.pexels.com/photos/3373739/pexels-photo-3373739.jpeg"
+                                                    alt="Featured Makeup Product"
+                                                    className="w-full h-full object-cover transition-transform duration-700 group-hover/promo:scale-105"
+                                                />
+                                                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                                                <div className="absolute bottom-0 left-0 p-6">
+                                                    <span className="inline-block px-3 py-1 bg-rosegold text-white text-xs font-bold uppercase tracking-wider rounded-full mb-2">New Arrival</span>
+                                                    <h4 className="text-white text-2xl font-serif font-bold mb-2">Velvet Matte Lipstick</h4>
+                                                    <p className="text-white/90 text-sm mb-4">Long-lasting color with incredible hydration.</p>
+                                                    <span className="text-white font-semibold underline decoration-2 underline-offset-4 hover:text-primary transition-colors">Shop Now &rarr;</span>
+                                                </div>
+                                            </Link>
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
