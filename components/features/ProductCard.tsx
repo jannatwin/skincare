@@ -47,7 +47,7 @@ export function ProductCard({ product }: ProductCardProps) {
                 </div>
 
                 {/* Product Info */}
-                <div className="p-4">
+                <div className="p-3 md:p-4">
                     {/* Category Badge */}
                     <div className="mb-2">
                         <span className="text-xs font-semibold text-primary uppercase tracking-wide">
@@ -56,7 +56,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     </div>
 
                     {/* Product Name */}
-                    <h3 className="font-semibold text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    <h3 className="font-semibold text-sm md:text-base text-gray-800 mb-2 line-clamp-2 group-hover:text-primary transition-colors">
                         {product.name}
                     </h3>
 
@@ -77,7 +77,7 @@ export function ProductCard({ product }: ProductCardProps) {
                     {/* Price and Add to Cart */}
                     <div className="flex items-center justify-between mt-4">
                         <div>
-                            <p className="text-2xl font-bold text-primary">
+                            <p className="text-lg md:text-2xl font-bold text-primary">
                                 ${product.price.toFixed(2)}
                             </p>
                         </div>

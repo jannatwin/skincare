@@ -47,10 +47,10 @@ export default function CartPage() {
                         {/* Cart Items */}
                         <div className="lg:col-span-2 space-y-4">
                             {cart.map((item) => (
-                                <div key={item.product.id} className="bg-white rounded-large shadow-soft p-6">
-                                    <div className="flex gap-6">
+                                <div key={item.product.id} className="bg-white rounded-large shadow-soft p-4 md:p-6">
+                                    <div className="flex gap-4 md:gap-6">
                                         {/* Product Image */}
-                                        <div className="relative w-32 h-32 flex-shrink-0 rounded-medium overflow-hidden bg-lavender-pale">
+                                        <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0 rounded-medium overflow-hidden bg-lavender-pale">
                                             <Image
                                                 src={item.product.image_url || '/placeholder-product.jpg'}
                                                 alt={item.product.name}
@@ -61,7 +61,7 @@ export default function CartPage() {
 
                                         {/* Product Info */}
                                         <div className="flex-1">
-                                            <div className="flex justify-between mb-2">
+                                            <div className="flex justify-between items-start mb-2">
                                                 <div>
                                                     <Link href={`/product/${item.product.slug}`}>
                                                         <h3 className="font-semibold text-lg hover:text-primary transition-colors">
@@ -72,13 +72,13 @@ export default function CartPage() {
                                                 </div>
                                                 <button
                                                     onClick={() => removeFromCart(item.product.id)}
-                                                    className="text-gray-400 hover:text-red-500 transition-colors"
+                                                    className="text-gray-400 hover:text-red-500 transition-colors shrink-0 ml-2"
                                                 >
                                                     <Trash2 className="w-5 h-5" />
                                                 </button>
                                             </div>
 
-                                            <div className="flex items-center justify-between mt-4">
+                                            <div className="flex flex-col sm:flex-row sm:items-center justify-between mt-2 md:mt-4 gap-3 md:gap-0">
                                                 {/* Quantity Controls */}
                                                 <div className="flex items-center space-x-3">
                                                     <button
@@ -98,8 +98,8 @@ export default function CartPage() {
                                                 </div>
 
                                                 {/* Price */}
-                                                <div className="text-right">
-                                                    <p className="text-2xl font-bold text-primary">
+                                                <div className="text-left sm:text-right">
+                                                    <p className="text-xl md:text-2xl font-bold text-primary">
                                                         ${(item.product.price * item.quantity).toFixed(2)}
                                                     </p>
                                                     <p className="text-sm text-gray-600">

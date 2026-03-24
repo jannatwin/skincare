@@ -51,6 +51,13 @@ export function SkinAdvisorSection() {
                 })
             });
             const data = await res.json();
+
+            if (!res.ok || data.error) {
+                alert(`Analysis Failed: ${data.error || 'Unknown error occurred.'}`);
+                setLoading(false);
+                return;
+            }
+
             setResults(data);
 
             const ids = data.recommendations?.map((r: any) => r.id) || [];
@@ -275,14 +282,14 @@ export function SkinAdvisorSection() {
                                     {/* Real Products */}
                                     <div className="space-y-6">
                                         <h4 className="text-2xl font-serif font-bold text-gray-800 text-center lg:text-left">Shop Recommended Products</h4>
-                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                        <div className="grid grid-cols-2 gap-3 md:gap-6">
                                             {recommendedProducts.length > 0 ? (
                                                 recommendedProducts.map((product) => (
                                                     <ProductCard key={product.id} product={product} />
                                                 ))
                                             ) : (
                                                 <div className="col-span-full py-12 text-center text-gray-500 bg-white rounded-large shadow-soft border border-dashed border-gray-300">
-                                                    Loading matching products...
+                                                    No products matched the recommendation exactly.
                                                 </div>
                                             )}
                                         </div>
